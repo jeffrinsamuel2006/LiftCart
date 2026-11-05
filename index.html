@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LiftCart | 3D Simulator</title><link rel="stylesheet" href="./style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script></head>
+<body><header class="top"><div class="brand"><b class="logo">L</b><div><strong>LIFTCART</strong><small>SMART APARTMENT DELIVERY SYSTEM</small></div></div><span class="phase">● PHASE 11 · METRIC-SCALE COLONY SIMULATION</span></header>
+<main><aside><small class="kicker">SIMULATION WORKSPACE</small><h1>Apartment<br><em>Colony</em></h1><p>Explore a furnished apartment colony with a dimensionally scaled internal goods lift. One scene unit represents one metre; inspect the apartments, circulation, service shaft and autonomous trolley-return cycle.</p>
+<label>SELECT BUILDING</label><select id="buildingSelect"><option value="A">Building A · Main block</option><option value="B">Building B · North block</option><option value="C">Building C · Garden block</option></select>
+<section class="card"><small>⌂ SELECTED BUILDING</small><h2 id="buildingName">Building A</h2><p>Residential · G + 3 floors · 3.15 m floor height</p><p class="scale-note">MODEL SCALE · 1 UNIT = 1 METRE<br>BLOCK FOOTPRINT · 13 m × 8 m</p><div class="stats"><b>G + 3<small>FLOORS</small></b><b>01<small>LIFT ZONE</small></b></div></section>
+<label>LOAD CONFIGURATION</label><select id="loadSelect"><option value="cylinder">Dummy LPG cylinder</option><option value="groceries">Grocery tray</option></select><label>DESTINATION FLOOR · MANUAL TEST</label>
+<section class="card lift-control-card">
+  <small>FLOOR SELECTOR</small>
+  <div class="floor-buttons">
+    <button class="floor-btn active" data-floor="0">G</button>
+    <button class="floor-btn" data-floor="1">1</button>
+    <button class="floor-btn" data-floor="2">2</button>
+    <button class="floor-btn" data-floor="3">3</button>
+  </div>
+  <button id="moveLift" class="sequence-primary">↑ Move platform</button>
+  <div class="lift-readout"><span>PLATFORM</span><b id="liftStatus">GROUND FLOOR · READY</b></div>
+  <div class="lift-readout"><span>DOOR INTERLOCK</span><b id="interlockStatus">ENGAGED</b></div>
+</section>
+<label>DELIVERY SEQUENCE</label>
+<section class="card sequence-card">
+  <small>14-STAGE DELIVERY + AUTONOMOUS TROLLEY RETURN</small>
+  <b id="sequenceStep">1 / 14 · READY</b>
+  <div class="progress-track"><div id="sequenceProgress"></div></div>
+  <p id="sequenceStatus">Worker is ready to load the selected delivery</p>
+  <button id="playSequence" class="sequence-primary">▶ Start delivery</button>
+  <div class="sequence-actions"><button id="nextStep">Run this stage →</button><button id="resetSequence">↺ Reset</button></div>
+</section>
+<label>CAMERA PRESETS</label><button data-camera="colony" class="active">Colony overview ↗</button><button data-camera="building">Selected building ↗</button><button data-camera="front">Front elevation ↗</button><button data-camera="interior">Interior cutaway ↗</button>
+<label class="views">VIEW OPTIONS</label><div class="toggle"><span>Building labels</span><input id="labelsToggle" type="checkbox" checked></div><div class="toggle"><span>Lift installation zone</span><input id="liftZoneToggle" type="checkbox" checked></div><div class="toggle"><span>Engineering grid</span><input id="gridToggle" type="checkbox"></div><div class="toggle"><span>See-through cutaway</span><input id="cutawayToggle" type="checkbox" checked></div><div class="toggle"><span>Engineering labels</span><input id="engineeringToggle" type="checkbox"></div>
+<footer>● PHASE 11 · REAL-SCALE RESIDENTIAL ENVIRONMENT<br><br>VISUAL CONCEPT ONLY · NOT A CERTIFIED LIFT DESIGN</footer></aside>
+<section class="viewer"><div class="viewhead"><div><small>LIVE 3D ENVIRONMENT · METRIC SCALE</small><b>LiftCart assembly / <em id="viewportBuilding">Building A</em></b></div><span>DRAG TO ORBIT · SCROLL TO ZOOM · RIGHT-DRAG TO PAN</span></div><div id="scene-container"></div><div class="scene-tag">● INTERNAL SERVICE SHAFT　|　CUTAWAY VIEW</div><div class="hud"><div><small>SELECTED</small><b id="hudBuilding">BUILDING A</b></div><div><small>MECHANISM</small><b>GUIDED PLATFORM + DRIVE</b></div><div><small>FLOOR</small><b id="hudFloor">GROUND</b></div><div><small>LOAD UNIT</small><b>DOCK / AUTO-RETURN TROLLEY</b></div><button id="resetView">Reset camera ↺</button></div></section></main>
+<script type="module" src="./src/main.js"></script></body></html>
